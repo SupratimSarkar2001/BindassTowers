@@ -82,12 +82,12 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-  /**
-   * Compare a given password with the password hash stored in the database.
-   * @param {string} passwordInput - The password to compare.
-   * @returns {Promise<boolean>} - A promise that resolves to true if the password is valid, false otherwise.
-   * @throws {Error} - If the password comparison fails.
-   */
+/**
+ * Compare a given password with the password hash stored in the database.
+ * @param {string} passwordInput - The password to compare.
+ * @returns {Promise<boolean>} - A promise that resolves to true if the password is valid, false otherwise.
+ * @throws {Error} - If the password comparison fails.
+ */
 userSchema.methods.isPasswordValid = async function(passwordInput) {
  try {
    const passwordHash = this.password;
