@@ -82,6 +82,12 @@ const userSchema = new mongoose.Schema({
   }
 });
 
+  /**
+   * Compare a given password with the password hash stored in the database.
+   * @param {string} passwordInput - The password to compare.
+   * @returns {Promise<boolean>} - A promise that resolves to true if the password is valid, false otherwise.
+   * @throws {Error} - If the password comparison fails.
+   */
 userSchema.methods.isPasswordValid = async function(passwordInput) {
  try {
    const passwordHash = this.password;
@@ -92,6 +98,18 @@ userSchema.methods.isPasswordValid = async function(passwordInput) {
  }
 };
 
+/**
+ * Generates a JSON Web Token (JWT) for the user.
+ *
+ * Steps:
+ * 1. Create a token object containing the user's _id, firstName, and email.
+ * 2. Ensure that the JWT_SECRET is defined, throwing an error if it is not.
+ * 3. Sign the token object using the jwt.sign() method with the secret key, setting an expiration time of 7 day.
+ * 4. Return the generated token.
+ *
+ * @returns {Promise<string>} - A promise that resolves to the generated JWT.
+ * @throws {Error} - If the JWT_SECRET is not defined or token generation fails.
+ */
 userSchema.methods.generateJWTToken = async function() {
  try {
    const tokenObject = {
@@ -104,7 +122,7 @@ userSchema.methods.generateJWTToken = async function() {
      throw new Error("JWT_SECRET is not defined");
    }
 
-   const token = await jwt.sign(tokenObject, JWT_SECRET, { expiresIn: "1d" });
+   const token = await jwt.sign(tokenObject, JWT_SECRET, { expiresIn: "7d" });
    return token;
  } catch (error) {
    throw new Error("Token generation failed: " + error.message);
