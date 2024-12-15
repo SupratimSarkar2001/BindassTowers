@@ -232,9 +232,9 @@
 		{
 			"id": "pointer:pointer",
 			"typeName": "pointer",
-			"x": 847.5,
-			"y": -103.66331619609377,
-			"lastActivityTimestamp": 1734251111591,
+			"x": -92.5,
+			"y": 255.33668380390623,
+			"lastActivityTimestamp": 1734253488001,
 			"meta": {}
 		},
 		{
@@ -259,7 +259,7 @@
 			"screenBounds": {
 				"x": 0,
 				"y": 0,
-				"w": 1585,
+				"w": 1872,
 				"h": 860
 			},
 			"insets": [
@@ -277,9 +277,9 @@
 			"isFocused": true,
 			"devicePixelRatio": 1,
 			"isCoarsePointer": false,
-			"isHoveringCanvas": false,
+			"isHoveringCanvas": true,
 			"openMenus": [],
-			"isChangingStyle": true,
+			"isChangingStyle": false,
 			"isReadonly": false,
 			"meta": {},
 			"duplicateProps": null,
@@ -291,9 +291,9 @@
 			"editingShapeId": null,
 			"croppingShapeId": null,
 			"selectedShapeIds": [
-				"shape:bVOGcTpW3l3MrDlN37Kim"
+				"shape:uXh067_kpOhNUuynq-iAB"
 			],
-			"hoveredShapeId": null,
+			"hoveredShapeId": "shape:uXh067_kpOhNUuynq-iAB",
 			"erasingShapeIds": [],
 			"hintingShapeIds": [],
 			"focusedGroupId": null,
@@ -570,7 +570,7 @@
 				"color": "black",
 				"size": "s",
 				"w": 244.00000000000003,
-				"text": "Renewal agreement\n\n1._id\n2. newRent\n3. nomineesChange(bool)\n4. Nominees\n5. documents\n6. agreementTenure",
+				"text": "Renewal agreement\n\n1._id\n2. newRent\n3. nomineesChange(bool)\n4. Nominees\n5. kyc documents\n6. Must have documrnts[]\n7. agreementTenure",
 				"font": "draw",
 				"textAlign": "start",
 				"autoSize": false,
@@ -754,7 +754,7 @@
 			"typeName": "shape"
 		},
 		{
-			"x": -273.5,
+			"x": -315.5,
 			"y": 250.18824630390628,
 			"rotation": 0,
 			"isLocked": false,
@@ -765,20 +765,20 @@
 			"props": {
 				"color": "black",
 				"size": "s",
-				"w": 182,
-				"text": "Ownership Change\n\n1. _id\n2. ownerId\n3. documents",
+				"w": 224,
+				"text": "Ownership Change\n\n1. _id\n2. ownerId\n3. Identity documents\n4. Deed documents",
 				"font": "draw",
 				"textAlign": "start",
 				"autoSize": false,
-				"scale": 1
+				"scale": 0.9753054662379421
 			},
 			"parentId": "page:page",
 			"index": "aP5zg",
 			"typeName": "shape"
 		},
 		{
-			"x": -289.5,
-			"y": 235.33668380390628,
+			"x": -322.5,
+			"y": 254.33668380390628,
 			"rotation": 0,
 			"isLocked": false,
 			"opacity": 1,
@@ -786,8 +786,8 @@
 			"id": "shape:9JfG8GG8MDxceL31PLN2T",
 			"type": "geo",
 			"props": {
-				"w": 198,
-				"h": 152,
+				"w": 231.00000000000003,
+				"h": 151,
 				"geo": "rectangle",
 				"color": "black",
 				"labelColor": "black",
@@ -904,8 +904,8 @@
 					"a1": {
 						"id": "a1",
 						"index": "a1",
-						"x": 0,
-						"y": 0
+						"x": -3,
+						"y": 21
 					},
 					"a25K2": {
 						"id": "a25K2",
