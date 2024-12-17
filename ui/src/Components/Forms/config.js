@@ -83,7 +83,6 @@ export const SignUpFormConfig = [
    rules: [{ required: true, message: 'Please select your role!' }],
    options: [
      { value: 'user', label: 'User' },
-     { value: 'admin', label: 'Admin' },
      { value: 'etm', label: 'ETM' },
      { value: 'eh', label: 'EH' },
      { value: 'lt', label: 'LT' }
