@@ -15,12 +15,28 @@ code {
 
 
 
-/* Override Ant Design Styles */
+/* Primary Button Default State */
 .ant-btn-primary {
-  background-color: #000000;
-  border-color: #000000;
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+  color: #ffffff !important;
 }
 
+/* Primary Button Hover State */
+.ant-btn-primary:hover, 
+.ant-btn-primary:focus {
+  background-color: #808080 !important; /* Gray hover */
+  border-color: #808080 !important;
+  color: #ffffff !important;
+}
+
+/* Link Button Default State */
 .ant-btn-link {
-  color: #000000;
+  color: #000000 !important;
+}
+
+/* Link Button Hover State */
+.ant-btn-link:hover, 
+.ant-btn-link:focus {
+  color: #808080 !important; /* Gray hover */
 }
