@@ -1,6 +1,8 @@
 const express = require('express');
 const validator = require("validator");
 const bcrypt = require("bcrypt")
+const jwt = require("jsonwebtoken");
+const JWT_SECRET = process.env.JWT_SECRET
 
 
 const { singUpValidation } = require('../helper/validation.js');
@@ -69,6 +71,26 @@ authRouter.post("/login",async (req,res)=>{
  catch(error){
    res.status(400).send("Login Failed "+error.message);
  }
+})
+
+authRouter.post("/verify-token", async (req,res)=>{
+  try{
+    const token = req.cookies.token;
+    if(!token){
+      throw new Error("No Token Found");
+    }
+    const { _id, firstName } = jwt.verify(token, JWT_SECRET);
+    const user = await User.findById(_id);
+    if(!user){
+      throw new Error("No User Found");
+    }
+    res.send({
+      message:"Token is valid",
+    });
+  }
+  catch(error){
+    res.status(401).send("Unauthorized "+error.message);
+  }
 })
 
 authRouter.post("/logout",async (req,res)=>{
