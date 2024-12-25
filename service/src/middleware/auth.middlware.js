@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { User } = require("../models/Users.model");
+const { User } = require("../model/user.model.js");
 const JWT_SECRET = process.env.JWT_SECRET
 
 /**
@@ -33,4 +33,17 @@ const userAuth = async (req, res, next) => {
   }
 };
 
-module.exports = { userAuth };
+const adminRBAC = async (req, res, next) => {
+  try {
+    const user = req.user;
+    if (user.role !== "admin") {
+      throw new Error("Unauthorized Admin");
+    }
+    next();
+  }
+  catch (error) {
+    res.status(402).send({ error: "Unauthorized Admin", message: error.message });
+  }
+}
+
+module.exports = { userAuth, adminRBAC };
