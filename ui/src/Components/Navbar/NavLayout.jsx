@@ -19,7 +19,7 @@ const generateMenuItems = (role) => {
   }));
 };
 
-const NavLayout = () => {
+const NavLayout = ({ children }) => {
   const menuItems = generateMenuItems(userInfo.role);
 
   const navigate = useNavigate();
@@ -82,7 +82,7 @@ const NavLayout = () => {
               minHeight: '90vh',
             }}
           >
-            Content
+            {children}
           </Content>
         </Layout>
       </Layout>

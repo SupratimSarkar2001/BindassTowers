@@ -2,11 +2,12 @@ const express = require('express');
 const validator = require("validator");
 
 const { User } = require('../model/user.model');
+const { userAuth, adminRBAC } = require('../middleware/auth.middlware');
 
 const userRouter = express.Router();
 
 /* In oder to get details of all the existing user the requester should be an admin */
-userRouter.get("/all", async (req, res) => {
+userRouter.get("/all", userAuth, adminRBAC, async (req, res) => {
  try {
    const { role } = req.query;
 
@@ -34,7 +35,7 @@ userRouter.get("/all", async (req, res) => {
  }
 });
 
-userRouter.get("/id/:id", async (req, res) => {
+userRouter.get("/id/:id", userAuth, async (req, res) => {
  try {
    const { id } = req.params;
    const user = await User.findById(id).select("-password");
@@ -54,7 +55,7 @@ userRouter.get("/id/:id", async (req, res) => {
  }
 })
 
-userRouter.get("/email/:email", async (req, res) => {
+userRouter.get("/email/:email",userAuth, adminRBAC, async (req, res) => {
  try {
    const { email } = req.params;
 
