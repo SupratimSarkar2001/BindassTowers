@@ -6,6 +6,7 @@ const cors = require('cors')
 const {connectDB} = require("./config/database");
 const { authRouter } = require("./routes/auth.routes");
 const { propertyRouter } = require("./routes/property.routes");
+const { userRouter } = require("./routes/user.routes");
 
 const PORT = 8080;
 
@@ -32,7 +33,8 @@ connectDB().then(()=>{
 
 /*Routes*/
 app.use("/auth", authRouter);
-app.use("/property", propertyRouter)
+app.use("/property", propertyRouter);
+app.use("/user", userRouter);
 
 /* Global error handler */
 app.use((err, req, res, next) => {
