@@ -5,7 +5,7 @@ import Home from './Page/CommonPage/Home';
 import LoginPage from './Page/AuthPage/LoginPage';
 import SignupPage from './Page/AuthPage/SignupPage';
 import PrivateRoute from './util/PrivateRoute';
-import PropertyAdmin from './Page/PropertyPage/PropertyAdmin';
+import PropertyAdmin from './Page/PropertyPage/Admin/PropertyAdmin';
 
 function App() {
   return (

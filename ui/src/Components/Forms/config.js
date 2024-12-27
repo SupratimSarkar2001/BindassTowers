@@ -132,3 +132,65 @@ export const SignUpFormConfig = [
    ],
  },
 ];
+
+
+export const AddNewPropertyFormConfig = [
+  {
+    name: 'address',
+    label: 'Address',
+    type: 'text',
+    rules: [
+      { required: true, message: 'Please input the property address!' },
+      { min: 5, max: 200, message: 'Address should be between 5 to 100 characters' },
+    ],
+  },
+  {
+    name: 'city',
+    label: 'City',
+    type: 'text',
+    rules: [
+      { required: true, message: 'Please input the city!' },
+      { min: 2, max: 50, message: 'City name should be between 2 to 50 characters' },
+    ],
+  },
+  {
+    name: 'town',
+    label: 'Town',
+    type: 'text',
+    rules: [
+      { required: true, message: 'Please input the town!' },
+      { min: 2, max: 50, message: 'Town name should be between 2 to 50 characters' },
+    ],
+  },
+  {
+    name: 'state',
+    label: 'State',
+    type: 'select',
+    rules: [{ required: true, message: 'Please select the state!' }],
+    options: [
+      "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh",
+      "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka",
+      "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram",
+      "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana",
+      "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Andaman and Nicobar Islands",
+      "Chandigarh", "Dadra and Nagar Haveli and Daman and Diu", "Lakshadweep", "Delhi", "Puducherry"
+    ].map(state => ({ value: state, label: state })),
+  },
+  {
+    name: 'pincode',
+    label: 'Pin Code',
+    type: 'text',
+    rules: [
+      { required: true, message: 'Please input the pin code!' },
+      { pattern: /^\d{6}$/, message: 'Please enter a valid 6-digit pin code' },
+    ],
+  },
+  {
+    name: 'ownerId',
+    label: 'Owner ID',
+    type: 'text',
+    rules: [
+      { required: true, message: 'Please input the owner ID!' },
+    ],
+  },
+];

@@ -95,3 +95,14 @@ export const slideContentText={
  fontSize: '24px', 
  textShadow: '0 1px 3px rgba(0,0,0,0.6)' 
 }
+
+export const fullPageCardContainer={
+ display: 'flex',
+ flexDirection: 'column',
+ justifyContent: 'center',
+ alignItems: 'center',
+ padding: 24,
+ background: 'rgba(255, 255, 255, 0.9)',
+ borderRadius: 8,
+ boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
+}
