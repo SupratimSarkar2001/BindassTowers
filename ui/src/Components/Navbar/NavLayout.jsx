@@ -9,7 +9,6 @@ const { Header, Content, Sider } = Layout;
 
 const userInfo = JSON.parse(localStorage.getItem('userInfo'));
 
-
 const generateMenuItems = (role) => {
   const roleConfig = configSidebarItems[role] || []; 
   return roleConfig.map((item) => ({
@@ -19,7 +18,7 @@ const generateMenuItems = (role) => {
   }));
 };
 
-const NavLayout = ({ children }) => {
+const NavLayout = ({ children, pageName}) => {
   const menuItems = generateMenuItems(userInfo.role);
 
   const navigate = useNavigate();
@@ -62,7 +61,7 @@ const NavLayout = ({ children }) => {
         <Sider width={200}>
           <Menu
             mode="inline"
-            defaultSelectedKeys={['home']} 
+            defaultSelectedKeys={[pageName]} 
             style={{
               height: '100%',
               borderRight: 0,

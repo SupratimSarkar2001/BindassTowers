@@ -51,6 +51,7 @@ const UserInfoCard = ({ _id }) => {
           <Button 
             type="primary" 
             icon={<EditOutlined />} 
+            //TODO: Add edit function of User Info
             // onClick={() => onEdit(userInfo)}
           >
           </Button>
@@ -59,6 +60,9 @@ const UserInfoCard = ({ _id }) => {
       bordered
     >
       <Descriptions column={1}>
+      <Descriptions.Item label="User ID">
+          <Text>{userInfo._id}</Text>
+        </Descriptions.Item>
         <Descriptions.Item label="First Name">
           <Text>{userInfo.firstName}</Text>
         </Descriptions.Item>

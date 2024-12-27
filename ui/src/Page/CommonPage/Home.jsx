@@ -7,7 +7,7 @@ import WelcomeSlide from '../../Components/WelcomeSlide/WelcomeSlide'
 const Home = () => {
   const userInfo = JSON.parse(localStorage.getItem('userInfo'))
   return (
-    <NavLayout>
+    <NavLayout pageName="home">
       <div style ={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
         <div style ={{width:'80%'}}>
           <WelcomeSlide/>

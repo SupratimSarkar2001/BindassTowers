@@ -5,6 +5,7 @@ import Home from './Page/CommonPage/Home';
 import LoginPage from './Page/AuthPage/LoginPage';
 import SignupPage from './Page/AuthPage/SignupPage';
 import PrivateRoute from './util/PrivateRoute';
+import PropertyAdmin from './Page/PropertyPage/PropertyAdmin';
 
 function App() {
   return (
@@ -18,6 +19,11 @@ function App() {
             } />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
+          <Route path="/property-admin" element={
+            <PrivateRoute>
+              <PropertyAdmin />
+            </PrivateRoute>
+          } />
         </Routes>
       </BrowserRouter>
     </div>

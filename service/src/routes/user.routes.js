@@ -35,26 +35,6 @@ userRouter.get("/all", userAuth, adminRBAC, async (req, res) => {
  }
 });
 
-userRouter.get("/id/:id", userAuth, async (req, res) => {
- try {
-   const { id } = req.params;
-   const user = await User.findById(id).select("-password");
-
-   if(!user){
-    throw new Error("User not found");
-   }
-
-   res.send({
-     message: "User fetched successfully",
-     data: user,
-   });
- } catch (error) {
-   res.status(500).send({
-     error: "Unable to fetch user - " + error.message,
-   });
- }
-})
-
 userRouter.get("/email/:email",userAuth, adminRBAC, async (req, res) => {
  try {
    const { email } = req.params;
@@ -79,5 +59,62 @@ userRouter.get("/email/:email",userAuth, adminRBAC, async (req, res) => {
    });
  }
 })
+
+/*Generic User Endpoints */
+
+userRouter.get("/id/:id", userAuth, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findById(id).select("-password");
+ 
+    if(!user){
+     throw new Error("User not found");
+    }
+ 
+    res.send({
+      message: "User fetched successfully",
+      data: user,
+    });
+  } catch (error) {
+    res.status(500).send({
+      error: "Unable to fetch user - " + error.message,
+    });
+  }
+ })
+
+ userRouter.patch("/id/:id", userAuth, async (req, res) => {
+  try{
+    const allowedUpdates = ["mobileNumber","city", "state", "town", "pinCode"];
+
+    const requestObjectKeys = Object.keys(req.body);
+
+    const isValidUpdateRequest = requestObjectKeys.every(update => allowedUpdates.includes(update));
+
+    if(!isValidUpdateRequest){
+     throw new Error("Invalid update request");
+    }
+    
+    const { id } = req.params;
+    const user = await User.findById(id);
+
+    if(!user){
+     throw new Error("User not found");
+    }
+
+    const updatedUser = await User.findByIdAndUpdate(id, req.body, {new: true});
+
+    res.send({
+      message: "User updated successfully",
+      data: updatedUser,
+    });
+  }
+  catch(error){
+    res.status(500).send(
+      {
+        error: "Uanble to update user: " + error.message,
+      }
+    )
+  }
+ });
 
 module.exports = {userRouter}

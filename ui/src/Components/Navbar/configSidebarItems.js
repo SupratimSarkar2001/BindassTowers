@@ -3,7 +3,7 @@ import { ShopOutlined, LaptopOutlined, UserOutlined, NotificationOutlined, HomeO
 export const configSidebarItems = {
  admin: [
    {key: 'home', label: 'Home', icon: HomeOutlined, path: '/'},
-   { key: 'property', label: 'Property', icon: ShopOutlined, path: '/property' },
+   { key: 'property', label: 'Property', icon: ShopOutlined, path: '/property-admin' },
    { key: 'rent', label: 'Rent', icon: LaptopOutlined, path: '/rent' },
    { key: 'ownershipchange', label: 'Ownership Change', icon: NotificationOutlined, path: '/ownershipchange' },
    { key: 'usersprofile', label: 'Users Profile', icon: UserOutlined, path: '/usersprofile' },
